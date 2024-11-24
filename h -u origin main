@@ -1,0 +1,429 @@
+[33mcommit bc339f1cafa31e7d15a70cd49b49afc6bc48746a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: MarionRobette <220982@umons.ac.be>
+Date:   Sun Nov 24 11:54:07 2024 +0100
+
+    Premier commit
+
+[1mdiff --git a/composer.json b/composer.json[m
+[1mindex 25057fa..7c33c68 100644[m
+[1m--- a/composer.json[m
+[1m+++ b/composer.json[m
+[36m@@ -3,18 +3,10 @@[m
+     "description": "TP EDL 2020",[m
+     "type": "project",[m
+     "require": {[m
+[31m-<<<<<<< HEAD[m
+         "php": "8.2.24"[m
+     },[m
+     "require-dev": {[m
+         "phpunit/phpunit": "^7.0|^9.4"[m
+[31m-=======[m
+[31m-        "php": "^5.4|^7.3"[m
+[31m-    },[m
+[31m-    "require-dev": {[m
+[31m-        "phpunit/phpunit": "^7.0|^9.4",[m
+[31m-        "phpunit/dbunit": "^4.0"[m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+     },[m
+     "autoload": {[m
+         "psr-4": {[m
+[36m@@ -31,7 +23,6 @@[m
+             "name": "NOFFABEL",[m
+             "email": "noffabel12@gmail.com"[m
+         }[m
+[31m-<<<<<<< HEAD[m
+     ],[m
+     "repositories": [[m
+         {[m
+[36m@@ -40,7 +31,4 @@[m
+         }[m
+     ][m
+ [m
+[31m-=======[m
+[31m-    ][m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+ }[m
+[1mdiff --git a/test/ProfCoursTest.php b/test/ProfCoursTest.php[m
+[1mindex c42283e..57e97eb 100644[m
+[1m--- a/test/ProfCoursTest.php[m
+[1m+++ b/test/ProfCoursTest.php[m
+[36m@@ -20,7 +20,6 @@[m [mclass ProfCoursTest extends TestCase[m
+ [m
+     public static $conn = null;[m
+     // Prof[m
+[31m-<<<<<<< HEAD[m
+     private $prenom ="REVERGIE";[m
+     private $nom ="TATSUM";[m
+     private $date ="22/07/1984";[m
+[36m@@ -29,16 +28,6 @@[m [mclass ProfCoursTest extends TestCase[m
+     // cours[m
+     private $intitule="Intégration continue";[m
+     private $duree="3h";[m
+[31m-=======[m
+[31m-    private $prenom ="REVERGIE"; // a changer[m
+[31m-    private $nom ="TATSUM"; // a changer[m
+[31m-    private $date ="22/07/1984"; // a changer[m
+[31m-    private $lieu ="Toulouse, France"; // a changer[m
+[31m-[m
+[31m-    // cours[m
+[31m-    private $intitule="Intégratoin continue"; //a remplir[m
+[31m-    private $duree="3h";    //a remplir[m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+ [m
+     private static $prof_a = [];[m
+     private static $cours_a = [];[m
+[36m@@ -54,11 +43,7 @@[m [mclass ProfCoursTest extends TestCase[m
+                     self::$conn->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);[m
+                     $sql_db = file_get_contents(self::SQL_FILE);[m
+                     $sql_db = str_replace(self::FAKE_DBNAME, self::DB_NAME, $sql_db);[m
+[31m-<<<<<<< HEAD[m
+                     $sql_stmt = self::$conn->prepare($sql_db);[m
+[31m-=======[m
+[31m-                        $sql_stmt = self::$conn->prepare($sql_db);[m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+                     if($sql_stmt->execute()) {[m
+                         print "Creation à la base de données ". self::DB_NAME." REUSSIE \n";[m
+                         $sql_stmt->closeCursor();[m
+[36m@@ -78,7 +63,6 @@[m [mclass ProfCoursTest extends TestCase[m
+ [m
+         print "Création des variables. \n";[m
+         self::$prof_a = [[m
+[31m-<<<<<<< HEAD[m
+ [m
+ [m
+             /**[m
+[36m@@ -88,19 +72,6 @@[m [mclass ProfCoursTest extends TestCase[m
+              */[m
+ [m
+ [m
+[31m-=======[m
+[31m-            [m
+[31m-            [m
+[31m-            /**[m
+[31m-            *[m
+[31m-            * Question 6 : Insérer les enregistrements suivantes dans la table prof [m
+[31m-            *[m
+[31m-            */[m
+[31m-            [m
+[31m-            new Prof("Nom_prof1", "Prenom_prof1", "10/01/1982", "lieu_prof1"),      // idprof = 1[m
+[31m-            new Prof("Nom_prof2", "Prenom_prof2", "10/02/1982", "lieu_prof2"),      // idprof = 2[m
+[31m-            new Prof("Nom_prof3", "Prenom_prof3", "10/03/1982", "lieu_prof3"),      // idprof = 3[m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+             new Prof("Nom_prof4", "Prenom_prof4", "10/04/1982", "lieu_prof4"),      // idprof = 4[m
+             new Prof("Nom_prof5", "Prenom_prof5", "10/05/1982", "lieu_prof5"),      // idprof = 5[m
+             new Prof("Nom_prof6", "Prenom_prof6", "10/06/1982", "lieu_prof6"),      // idprof = 6[m
+[36m@@ -117,7 +88,6 @@[m [mclass ProfCoursTest extends TestCase[m
+             new Cours("Cours4", "2", 3),       // idcours = 4[m
+             new Cours("Cours5", "3", 3),       // idcours = 5[m
+             new Cours("Cours6", "2", 4),       // idcours = 6[m
+[31m-<<<<<<< HEAD[m
+ [m
+ [m
+             /**[m
+[36m@@ -131,23 +101,6 @@[m [mclass ProfCoursTest extends TestCase[m
+     }[m
+ [m
+ [m
+[31m-=======[m
+[31m-            new Cours("Cours7", "3", 5),       // idcours = 7   ** A SUPPRIMER **[m
+[31m-            new Cours("Cours8", "4", 5),       // idcours = 8[m
+[31m-            new Cours("Cours9", "3", 5),        // idcours = 9   ** A MODIFIER **[m
+[31m-            [m
+[31m-            /**[m
+[31m-            *[m
+[31m-            * Question 7 : Insérer les enregistrements suivantes dans la table cours[m
+[31m-            *[m
+[31m-            */[m
+[31m-[m
+[31m-        ];[m
+[31m-        [m
+[31m-    }[m
+[31m-    [m
+[31m-    [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+     public static function tearDownAfterClass(): void{[m
+         parent::tearDownAfterClass();[m
+         print __METHOD__."\n";[m
+[36m@@ -163,13 +116,8 @@[m [mclass ProfCoursTest extends TestCase[m
+         self::$prof_a = [];[m
+         self::$cours_a = [];[m
+     }[m
+[31m-<<<<<<< HEAD[m
+ [m
+ [m
+[31m-=======[m
+[31m-    [m
+[31m-    [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+     /**[m
+      * Returns the test database connection.[m
+      *[m
+[36m@@ -184,37 +132,22 @@[m [mclass ProfCoursTest extends TestCase[m
+         }[m
+         return self::$conn;[m
+     }[m
+[31m-<<<<<<< HEAD[m
+ [m
+ [m
+[31m-=======[m
+[31m-    [m
+[31m-    [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+     protected function setUp():void[m
+     {[m
+         parent::setUp();[m
+         print __METHOD__."\n";[m
+     }[m
+[31m-<<<<<<< HEAD[m
+ [m
+ [m
+[31m-=======[m
+[31m-    [m
+[31m-    [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+     protected function tearDown():void[m
+     {[m
+         parent::tearDown();[m
+         print __METHOD__."\n\n";[m
+     }[m
+[31m-<<<<<<< HEAD[m
+ [m
+ [m
+[31m-=======[m
+[31m-    [m
+[31m-    [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+     /**[m
+      * Respect this order[m
+      * 1. Add Prof[m
+[36m@@ -225,11 +158,7 @@[m [mclass ProfCoursTest extends TestCase[m
+     {[m
+         print __METHOD__."\n";[m
+         $conn = $this->getConnection();[m
+[31m-<<<<<<< HEAD[m
+ [m
+[31m-=======[m
+[31m-        [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+         // Prof[m
+         print "ADD prof \n";[m
+         foreach (self::$prof_a as $prof) {[m
+[36m@@ -240,7 +169,6 @@[m [mclass ProfCoursTest extends TestCase[m
+         $this->assertEquals($expected, $num_records, "Enregistrement des profs ...\n");[m
+         $this->assertCount($num_records, self::$prof_a, "Enregistrement des profs ...\n");[m
+ [m
+[31m-<<<<<<< HEAD[m
+ [m
+         // Cours[m
+ [m
+[36m@@ -254,25 +182,6 @@[m [mclass ProfCoursTest extends TestCase[m
+     }[m
+ [m
+ [m
+[31m-=======[m
+[31m-        [m
+[31m-        // Cours[m
+[31m-        [m
+[31m-        print "ADD cours\n";[m
+[31m-        foreach (self::$cours_a as $cours) {[m
+[31m-            $cours->add($conn);[m
+[31m-        }[m
+[31m-        [m
+[31m-        /**[m
+[31m-        *[m
+[31m-        * Question 8 : Dans la fonction « testAdd() », s’inspirer de test d’ajout des profs pour tester l’ajout des cours.   [m
+[31m-        *[m
+[31m-        */[m
+[31m-        [m
+[31m-    }[m
+[31m-    [m
+[31m-    [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+     /**[m
+      * Nous compterons le nobre d'enregistrement que nous comparerons au nombre d'élément du tableau.[m
+      * REQUIRE: Assurez vous qu'aucune suppression n'a été faite.[m
+[36m@@ -292,7 +201,6 @@[m [mclass ProfCoursTest extends TestCase[m
+         print "################################################################\n\n";[m
+         $this->assertCount(count(Self::$prof_a), $record_prof_a, "Nombre d'enregistrement égale pour Prof\n");[m
+ [m
+[31m-<<<<<<< HEAD[m
+ [m
+         // Cours[m
+ [m
+[36m@@ -307,22 +215,6 @@[m [mclass ProfCoursTest extends TestCase[m
+     }[m
+ [m
+ [m
+[31m-=======[m
+[31m-        [m
+[31m-        // Cours[m
+[31m-        [m
+[31m-        /**[m
+[31m-        *[m
+[31m-        * Question 9 : Dans la fonction « testPrintAll() », [m
+[31m-        * s’inspirer de test de la sélection et affichage des profs pour tester la sélection et l’affichage des cours.   [m
+[31m-        *[m
+[31m-        */[m
+[31m-  [m
+[31m-        [m
+[31m-    }[m
+[31m-    [m
+[31m-    [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+     /**[m
+      * Liste des cours et leur Prof[m
+      * => Cours...[m
+[36m@@ -341,13 +233,8 @@[m [mclass ProfCoursTest extends TestCase[m
+         }[m
+         print "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n";[m
+     }[m
+[31m-<<<<<<< HEAD[m
+ [m
+ [m
+[31m-=======[m
+[31m-    [m
+[31m-    [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+     /**[m
+      * Affichage d'un enregistrement[m
+      * @order 4[m
+[36m@@ -367,7 +254,6 @@[m [mclass ProfCoursTest extends TestCase[m
+         $this->assertEquals($expected, $prof_str, "Prof \n");[m
+ [m
+         // Cours[m
+[31m-<<<<<<< HEAD[m
+ [m
+         /**[m
+          *[m
+[36m@@ -377,17 +263,6 @@[m [mclass ProfCoursTest extends TestCase[m
+          */[m
+ [m
+ [m
+[31m-=======[m
+[31m-        [m
+[31m-        /**[m
+[31m-        *[m
+[31m-        * Question 10 :	Dans la fonction « testPrintOne() », [m
+[31m-        * s’inspirer de test de sélection et affichage du premier prof pour tester la sélection et l’affichage du premier cours dans la base.[m
+[31m-        *[m
+[31m-        */[m
+[31m-        [m
+[31m-           [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+ [m
+         // Avec des ID[m
+         $idProf = 10;[m
+[36m@@ -411,13 +286,8 @@[m [mclass ProfCoursTest extends TestCase[m
+         $this->assertEquals($expected, $cours_str, "Cours \n");[m
+ [m
+     }[m
+[31m-<<<<<<< HEAD[m
+ [m
+ [m
+[31m-=======[m
+[31m-    [m
+[31m-    [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+     /**[m
+      * Mise à jour des enregistrements[m
+      * 1. UPDATE prof num 10[m
+[36m@@ -442,7 +312,6 @@[m [mclass ProfCoursTest extends TestCase[m
+         $this->assertTrue($val, "Update du prof num $idProf ...\n");[m
+ [m
+         // Cours[m
+[31m-<<<<<<< HEAD[m
+ [m
+         /**[m
+          *[m
+[36m@@ -455,36 +324,15 @@[m [mclass ProfCoursTest extends TestCase[m
+ [m
+         // Prof[m
+ [m
+[31m-=======[m
+[31m-        [m
+[31m-        /**[m
+[31m-        *[m
+[31m-        * Question 11 :	Dans la fonction « testUpdateOne() », [m
+[31m-        * s’inspirer de test de la modification du prof avec idProf= 10 pour tester la modification du cours dans ayant comme idCours = 9.[m
+[31m-        *[m
+[31m-        */[m
+[31m-       [m
+[31m-        [m
+[31m-        [m
+[31m-        // Prof[m
+[31m-        [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+         print "########## - LISTE DES PROFS - APRES UPDATE DU PROF NUM $idProf ########## \n";[m
+         foreach ( $record_prof_a = Prof::printAll($conn) as $record_prof ) {[m
+             print $record_prof;[m
+         }[m
+         print "################################################################\n\n";[m
+[31m-<<<<<<< HEAD[m
+ [m
+ [m
+         // Cours[m
+ [m
+[31m-=======[m
+[31m-        [m
+[31m-        [m
+[31m-        // Cours[m
+[31m-        [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+         print "@@@@@@@@@@@@@ - LISTE DES COURS - APRES UPDATE DU COURS NUM $idCours @@@@@@@@@@@@@ \n";[m
+         foreach( $record_cours_a = Cours::printAll($conn) as $record_cours) {[m
+             print $record_cours;[m
+[36m@@ -553,7 +401,6 @@[m [mclass ProfCoursTest extends TestCase[m
+         print "################################################################\n\n";[m
+ [m
+         // Cours[m
+[31m-<<<<<<< HEAD[m
+         /**[m
+          *[m
+          * Question 12 :	Dans la fonction « testDeleteOne() »,[m
+[36m@@ -563,21 +410,6 @@[m [mclass ProfCoursTest extends TestCase[m
+     }[m
+ [m
+ [m
+[31m-=======[m
+[31m-        $val = Cours::deleteOne($conn, $idCours);[m
+[31m-        $this->assertTrue($val, "Cours num $idCours supprimer avec succès\n");[m
+[31m-        $record_cours_a = Cours::printAll($conn);[m
+[31m-        print "@@@@@@@@@@@@@ - LISTE DES COURS APRES SUPPRESSION - Vérifiez le cours num $idCours @@@@@@@@@@@@@ \n";[m
+[31m-        foreach( $record_cours_a as $record_cours) {[m
+[31m-            print $record_cours;[m
+[31m-        }[m
+[31m-        print "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n";[m
+[31m-    }[m
+[31m-[m
+[31m-    /**[m
+[31m-     *[m
+[31m-     */[m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+     public function testDeleteOne_2()[m
+     {[m
+         print __METHOD__."\n";[m
+[36m@@ -595,7 +427,6 @@[m [mclass ProfCoursTest extends TestCase[m
+         print "################################################################\n\n";[m
+ [m
+         // Cours[m
+[31m-<<<<<<< HEAD[m
+         /**[m
+          *[m
+          * Question 13 :	Dans la fonction « testDeleteOne_2() »,[m
+[36m@@ -604,16 +435,6 @@[m [mclass ProfCoursTest extends TestCase[m
+          */[m
+ [m
+ [m
+[31m-=======[m
+[31m-        [m
+[31m-        /**[m
+[31m-        *[m
+[31m-        * Question 12 :	Dans la fonction « testDeleteOne() », [m
+[31m-        * s’inspirer de test de la suppression du prof avec idProf= 8 pour tester la modification du cours dans ayant comme idCours = 7.[m
+[31m-        *[m
+[31m-        */[m
+[31m-        [m
+[31m->>>>>>> e09d363c22d799b0009f3424bb08d28cdf7d0c9e[m
+     }[m
+ [m
+ }[m
